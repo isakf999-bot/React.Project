@@ -1,0 +1,96 @@
+.project-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 20px 10px;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 320px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+}
+
+/* TITLE */
+.project-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* IMAGE */
+.project-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+/* GITHUB BTN LINK */
+.project-link {
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.project-link:hover {
+    background-color: #333;
+}
+
+/* TECH TITLE */
+.tech-title {
+    font-size: 14px;
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
+
+/* TECH LIST */
+.tech-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* TECH TAG */
+.tech-tag {
+    background-color: #eee;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+/* ABOUT PROJECT */
+.project-description {
+    font-size: 13px;
+    color: #555;
+    margin-top: 12px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+    .project-card {
+        width: 90%;
+    }
+}
