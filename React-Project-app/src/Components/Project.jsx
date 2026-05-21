@@ -1,5 +1,5 @@
 import "./Project.css"
-import screenShoot from "../assets/hero.png?url"
+import screenShoot from "../assets/hero.png"
 
 function Project() {
     return (
