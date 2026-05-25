@@ -10,6 +10,11 @@ function Portfolio() {
 
   const [showProjects, setShowProjects] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [preview, setPreview] = useState(false);
+  const [search, setSearch] = useState("");
+  const [popup, setPopup] = useState(false);
+  const [popupData, setPopupData] = useState(null);
+
 
   const projects = [
     {
@@ -46,6 +51,7 @@ function Portfolio() {
       <button
         className="toggle-button"
         onClick={() => setShowProjects(!showProjects)}
+        
       >
         {showProjects ? "Hide Projects" : "Show Projects"}
       </button>
@@ -70,8 +76,42 @@ function Portfolio() {
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
       />
+{preview && (
+  <div className="flex justify-center mt-8 max-w-7xl mx-auto">
+    <input
+      type="text"
+      className="border border-gray-300 rounded-lg px-4 py-2 w-1/3"
+      placeholder="Search tag..."
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+    />
+  </div>
+)}
+
+{preview && (
+  <div className="flex justify-center mt-8 flex-wrap max-w-7xl mx-auto">
+    {projects.map((project, index) => (
+      <Card
+        key={index}
+        pTitle={project.title}
+        pTags={project.tags}
+        onClick={() => showPopup(index)}
+      />
+    ))}
+  </div>
+)}
+
+{popup && (
+  <ProjectPopup
+    pTitle={popupData.title}
+    pInfo={popupData.info}
+    pTags={popupData.tags}
+    onClick={closePopup}
+  />
+)}
 
     </div>
+    
   );
 }
 
