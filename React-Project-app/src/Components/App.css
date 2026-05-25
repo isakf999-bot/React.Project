@@ -21,17 +21,12 @@
     padding: 12px 20px;
     font-size: 14px;
     font-weight: 500;
-
     border: none;
     border-radius: 10px;
-
     cursor: pointer;
-
     margin: 20px auto;
     display: block;
-
     box-shadow: 0 5px 10px rgba(0,0,0,0.15);
-
     transition: all 0.2s ease;
 }
 
@@ -44,4 +39,21 @@
 .toggle-button:active {
     transform: translateY(0px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.search-bar {
+    width: 300px;
+    max-width: 90%;
+    padding: 10px 16px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-bar:focus {
+    border-color: #333;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }

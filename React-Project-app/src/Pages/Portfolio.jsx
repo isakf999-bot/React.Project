@@ -14,6 +14,7 @@ function Portfolio() {
   const [search, setSearch] = useState("");
   const [popup, setPopup] = useState(false);
   const [popupData, setPopupData] = useState(null);
+ 
 
 
   const projects = [
@@ -43,10 +44,12 @@ function Portfolio() {
     }
   ];
 
+
   return (
     <div className="projects-container">
 
       <h2>Portfolio</h2>
+
 
       <button
         className="toggle-button"
@@ -57,62 +60,48 @@ function Portfolio() {
       </button>
 
       {showProjects && (
-        <div className="project-grid">
+        <>
+          <input
+            type="text"
+            className="search-bar"
+            placeholder="Search projects..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
 
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="project-card"
-              onClick={() => setSelectedProject(project)}
-            >
-              <h3>{project.name}</h3>
-            </div>
-          ))}
-
-        </div>
+          <div className="project-grid">
+            {projects
+              .filter((project) =>
+                (project.name + " " + project.tech)
+                  .toLowerCase()
+                  .includes(search.toLowerCase())
+              )
+              .map((project) => (
+                <div
+                  key={project.id}
+                  className="project-card"
+                  onClick={() => setSelectedProject(project)}
+                >
+                  <h3>{project.name}</h3>
+                </div>
+              ))}
+          </div>
+        </>
       )}
 
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
       />
-{preview && (
-  <div className="flex justify-center mt-8 max-w-7xl mx-auto">
-    <input
-      type="text"
-      className="border border-gray-300 rounded-lg px-4 py-2 w-1/3"
-      placeholder="Search tag..."
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-    />
-  </div>
-)}
-
-{preview && (
-  <div className="flex justify-center mt-8 flex-wrap max-w-7xl mx-auto">
-    {projects.map((project, index) => (
-      <Card
-        key={index}
-        pTitle={project.title}
-        pTags={project.tags}
-        onClick={() => showPopup(index)}
-      />
-    ))}
-  </div>
-)}
-
-{popup && (
-  <ProjectPopup
-    pTitle={popupData.title}
-    pInfo={popupData.info}
-    pTags={popupData.tags}
-    onClick={closePopup}
-  />
-)}
-
     </div>
-    
   );
-}
 
-export default Portfolio;
+}
+  export default Portfolio;
+
+
+  
+      
+
+
+
